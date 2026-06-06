@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider, Link, Outlet } from 'react-router-dom'
+import { HashRouter, Routes, Route, Link, Outlet } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import './index.css'
@@ -22,37 +22,25 @@ const Layout: React.FC = () => {
   )
 }
 
-// 2. Define the route structure
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <Layout />,
-      children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/about",
-          element: <About />,
-        },
-        {
-          path: "/dev",
-          element: <Dev />,
-        },
-      ],
-    },
-  ],
-  { basename: "/new-scorecard/" },
+// 2. Define the route structure with HashRouter
+const router = (
+  <HashRouter>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/dev" element={<Dev />} />
+      </Route>
+    </Routes>
+  </HashRouter>
 )
 
-// 3. Render the app using RouterProvider
+// 3. Render the app
 const rootElement = document.getElementById('root')
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
-      <RouterProvider router={router} />
+      {router}
     </React.StrictMode>,
   )
 }
