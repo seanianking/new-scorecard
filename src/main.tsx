@@ -23,26 +23,29 @@ const Layout: React.FC = () => {
 }
 
 // 2. Define the route structure
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/dev",
-        element: <Dev />,
-      }
-    ],
-  },
-])
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/about",
+          element: <About />,
+        },
+        {
+          path: "/dev",
+          element: <Dev />,
+        },
+      ],
+    },
+  ],
+  { basename: "/new-scorecard/" },
+)
 
 // 3. Render the app using RouterProvider
 const rootElement = document.getElementById('root')
