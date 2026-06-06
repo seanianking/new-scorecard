@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/seanianking/new-scorecard",
+  "homepage": "https://seanianking.github.io/new-scorecard/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
