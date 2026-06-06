@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider, Link, Outlet } from 'react-router-
 import Home from './pages/Home'
 import About from './pages/About'
 import './index.css'
+import Dev from './pages/Dev'
 
 // 1. Create a Layout component to hold navigation links
 const Layout: React.FC = () => {
@@ -12,6 +13,7 @@ const Layout: React.FC = () => {
       <nav className="flex gap-2.5 p-2.5">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
+        <Link to="/dev">Dev</Link>
       </nav>
       <hr />
       {/* Outlet renders the matched child route element */}
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
+      {
+        path: "/dev",
+        element: <Dev />,
+      }
     ],
   },
 ])
