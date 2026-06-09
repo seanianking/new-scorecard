@@ -1,3 +1,5 @@
+import CompulsoryEvents from "../components/templates/CompulsoryEvents";
+
 export default function About() {
-    return <h1>About Page</h1>;
+    return <><CompulsoryEvents /></>;
 }

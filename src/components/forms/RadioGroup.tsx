@@ -10,11 +10,12 @@ type Props = {
     orientation?: 'horizontal' | 'vertical'
     disabled?: boolean
     groupName: string
+    className?: string
 }
 
 const RadioGroup = (props: Props) => {
     return (
-        <div className={props.orientation === 'vertical' ? 'flex flex-col gap-2' : 'flex gap-2'}>
+        <div className={`${props.orientation === 'vertical' ? 'flex flex-col gap-2' : 'flex gap-2'} ${props.className}`}>
 
             {props.items.map((item) => (
                 <label key={item.value}>
