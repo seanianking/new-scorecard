@@ -7,15 +7,17 @@ type Props = {
 
 const Checkbox = (props: Props) => {
     return (
-        <label className="label">
+        <div className="flex items-center gap-2">
             <input
                 type="checkbox"
                 defaultChecked={props.defaultChecked}
-                className="checkbox"
+                className="checkbox checkbox-primary"
                 onChange={(e) => props.stateUpdate?.(e.target.checked)}
             />
-            {props.label}
-        </label>
+            <span>
+                {props.label}
+            </span>
+        </div>
     )
 }
 

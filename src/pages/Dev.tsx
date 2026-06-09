@@ -6,6 +6,7 @@ import RadioGroup from '../components/forms/RadioGroup'
 import Select from '../components/forms/Select'
 import TextArea from '../components/forms/TextArea'
 import { BadgeDollarSign } from 'lucide-react'
+import Card from '../components/Card'
 
 type Props = {}
 
@@ -37,20 +38,19 @@ function Dev({ }: Props) {
             <div className="space-y-4 p-6">
                 <h1 className="text-2xl font-bold">Forms</h1>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    <div className="card bg-base-100 border border-base-300 p-4 shadow-sm">
-
+                    <Card>
                         <Input label="Name" placeholder="Enter text" stateUpdate={setInputValue} />
                         <Input label="Email" placeholder="Enter text" stateUpdate={setInputValue} leftIcon={<BadgeDollarSign />} />
                         <div className="text-sm text-gray-500 mt-2">Value: {inputValue}</div>
-                    </div>
+                    </Card>
 
-                    <div className="card bg-base-100 border border-base-300 p-4 shadow-sm">
+                    <Card>
                         <h2 className="font-semibold mb-2">Checkbox</h2>
                         <Checkbox label="Accept Terms" stateUpdate={setCheckboxValue} />
                         <div className="text-sm text-gray-500 mt-2">Value: {String(checkboxValue)}</div>
-                    </div>
+                    </Card>
 
-                    <div className="card bg-base-100 border border-base-300 p-4 shadow-sm">
+                    <Card>
                         <h2 className="font-semibold mb-2">RadioGroup</h2>
                         <RadioGroup
                             items={[
@@ -58,12 +58,23 @@ function Dev({ }: Props) {
                                 { label: 'Option 2', value: 'option-2' },
                             ]}
                             stateUpdate={setRadioValue}
-                            groupName="example"
+                            groupName="example-1"
+                            orientation="vertical"
+                        />
+                        <br />
+                        <RadioGroup
+                            items={[
+                                { label: 'Option 1', value: 'option-1', defaultChecked: true },
+                                { label: 'Option 2', value: 'option-2' },
+                            ]}
+                            stateUpdate={setRadioValue}
+                            groupName="example-2"
+                            orientation="horizontal"
                         />
                         <div className="text-sm text-gray-500 mt-2">Value: {radioValue}</div>
-                    </div>
+                    </Card>
 
-                    <div className="card bg-base-100 border border-base-300 p-4 shadow-sm">
+                    <Card>
                         <h2 className="font-semibold mb-2">Select</h2>
                         <Select
                             options={['Option 1', 'Option 2', 'Option 3']}
@@ -71,13 +82,13 @@ function Dev({ }: Props) {
                             stateUpdate={setSelectValue}
                         />
                         <div className="text-sm text-gray-500 mt-2">Value: {selectValue}</div>
-                    </div>
+                    </Card>
 
-                    <div className="card bg-base-100 border border-base-300 p-4 shadow-sm">
+                    <Card>
                         <h2 className="font-semibold mb-2">TextArea</h2>
                         <TextArea header="Bio" label="Add a short bio" stateUpdate={setTextAreaValue} />
                         <div className="text-sm text-gray-500 mt-2">Value: {textAreaValue}</div>
-                    </div>
+                    </Card>
                 </div>
             </div>
         </>
